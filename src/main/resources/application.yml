@@ -1,21 +1,30 @@
-#spring:
-#  profiles:
-#    active: prod
-#  datasource:
-#    url: ${spring.datasource.url}
-#    username: ${spring.datasource.username}
-#    password: ${spring.datasource.password}
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#  jpa:
-#    database: mysql
-#    database-platform: org.hibernate.dialect.MySQL8Dialect
-#    hibernate:
-#      ddl-auto: create
-#    show-sql: true
-#    properties:
-#      hibernate:
-#        format_sql: false
-#        use_sql_comments: true
+spring:
+  profiles:
+    active: prod
+  datasource:
+    url: jdbc:postgresql://localhost:5432/my_database
+    username: my_user
+    password: my_password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+  redis:
+    host: localhost
+    port: 6379
+
+#logging:
+#  level:
+#    org:
+#      springframework: WARN
+
 #  ai:
 #    openai:
 #      api-key: ${spring.ai.openai.api-key}
